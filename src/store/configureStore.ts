@@ -5,11 +5,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { createLogger } from 'redux-logger';
 
 import { emptySplitApi } from '@/shared/api/emptySplitApi';
-import { similarSlice } from '@/store/similar/slice';
 
-import { detailsSlice } from './details/slice';
-import { favouritesSlice } from './favourites/slice';
-import { trendingSlice } from './trending/slice';
 import { uiSlice } from './ui/slice';
 // import { RESET_STATE_ACTION_TYPE } from './actions/resetState';
 
@@ -19,10 +15,6 @@ const logger = createLogger({
 
 const reducers = {
   // Slices
-  [detailsSlice.name]: detailsSlice.reducer,
-  [favouritesSlice.name]: favouritesSlice.reducer,
-  [similarSlice.name]: similarSlice.reducer,
-  [trendingSlice.name]: trendingSlice.reducer,
   [uiSlice.name]: uiSlice.reducer,
   // API
   [emptySplitApi.reducerPath]: emptySplitApi.reducer,
