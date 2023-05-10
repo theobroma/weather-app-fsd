@@ -1,8 +1,14 @@
 import { Container } from '@mui/material';
 
+import { HomeCurrentWeather } from './home-current-weather/home-current-weather';
+import { HomeForecast } from './home-forecast/home-forecast';
+import { HomeSearch } from './home-search/home-search';
+
 const HomePage = () => (
   <Container maxWidth="lg">
-    <div>HomePage</div>
+    <HomeSearch />
+    <HomeCurrentWeather />
+    <HomeForecast />
   </Container>
 );
 

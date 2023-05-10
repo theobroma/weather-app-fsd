@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import ComponentWithProblem from '@/shared/uikit/wdyr/component-with-problem';
+// import ComponentWithProblem from '@/shared/uikit/wdyr/component-with-problem';
 import { PersistentDrawerLeft } from '@/widgets/app-bar/app-bar';
 import { Footer } from '@/widgets/footer/footer';
 
@@ -10,7 +10,7 @@ const AppLayout = () => (
       <Outlet />
     </PersistentDrawerLeft>
     {/* Test WDYR */}
-    <ComponentWithProblem />
+    {/* <ComponentWithProblem /> */}
     <Footer />
   </div>
 );
