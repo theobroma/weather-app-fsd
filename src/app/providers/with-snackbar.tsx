@@ -1,9 +1,12 @@
 import { SnackbarProvider as NotiStackSnackbarProvider } from 'notistack';
-import { PropsWithChildren } from 'react';
 
 const SNACKBAR_MAX_COUNT = 5;
 
-export const SnackBarProvider = ({ children }: PropsWithChildren) => (
+export const SnackBarProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
   <NotiStackSnackbarProvider
     maxSnack={SNACKBAR_MAX_COUNT}
     anchorOrigin={{

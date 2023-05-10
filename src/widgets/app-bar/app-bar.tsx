@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from 'react';
+import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -20,7 +20,11 @@ import { LanguageMenu } from './language-menu/language-menu';
 import { NestedList } from './nested-list/nested-list';
 import { ThemeMenu } from './theme-menu/theme-menu';
 
-export const PersistentDrawerLeft = ({ children }: PropsWithChildren) => {
+export const PersistentDrawerLeft = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 

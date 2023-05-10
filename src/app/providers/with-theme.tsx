@@ -1,5 +1,3 @@
-import { PropsWithChildren } from 'react';
-
 import { PaletteMode } from '@mui/material';
 import { red } from '@mui/material/colors';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -98,7 +96,7 @@ const themeMap = {
   [ThemeEnum.PinkBlueGreyTheme]: PINK_BLUE_GREY_THEME,
 };
 
-const AppThemeProvider = ({ children }: PropsWithChildren) => {
+const AppThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const currentTheme = useAppSelector(themeSelector);
   const theme = createTheme(themeMap[currentTheme]);
 
