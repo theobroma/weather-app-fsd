@@ -22,7 +22,7 @@ export const HomeCurrentWeather = () => {
 
   return (
     <div>
-      {forecastData?.location && (
+      {!!forecastData?.location.name && (
         <CurrentWeatherLocation location={forecastData?.location} />
       )}
     </div>
