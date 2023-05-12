@@ -1,5 +1,7 @@
 import { useDailyWeatherQuery } from '@/store/forecast/api';
 
+import { CurrentWeatherLocation } from './current-weather-location/current-weather-location';
+
 export const HomeCurrentWeather = () => {
   // TODO:
   const lat = 51.5341714;
@@ -20,7 +22,9 @@ export const HomeCurrentWeather = () => {
 
   return (
     <div>
-      <span>home-current-weather</span>
+      {forecastData?.location && (
+        <CurrentWeatherLocation location={forecastData?.location} />
+      )}
     </div>
   );
 };
