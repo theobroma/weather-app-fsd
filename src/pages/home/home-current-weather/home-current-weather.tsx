@@ -1,5 +1,9 @@
+import { Box, Grid } from '@mui/material';
+
+import { GridProgress } from '@/shared/uikit/grid-progress/grid-progress';
 import { useDailyWeatherQuery } from '@/store/forecast/api';
 
+import { CurrentWeatherData } from './current-weather-data/current-weather-data';
 import { CurrentWeatherLocation } from './current-weather-location/current-weather-location';
 
 export const HomeCurrentWeather = () => {
@@ -9,9 +13,9 @@ export const HomeCurrentWeather = () => {
 
   const {
     data: forecastData,
-    error,
-    isError,
-    isSuccess,
+    // error,
+    // isError,
+    // isSuccess,
     isFetching,
   } = useDailyWeatherQuery({
     lat,
@@ -21,10 +25,17 @@ export const HomeCurrentWeather = () => {
   console.log('forecastData :>> ', forecastData);
 
   return (
-    <div>
-      {!!forecastData?.location.name && (
-        <CurrentWeatherLocation location={forecastData?.location} />
-      )}
-    </div>
+    <Box p={3}>
+      <GridProgress container spacing={1} loading={isFetching}>
+        <Grid item xs={12}>
+          {!!forecastData?.location.name && (
+            <CurrentWeatherLocation location={forecastData?.location} />
+          )}
+          {!!forecastData?.current && (
+            <CurrentWeatherData currentWeather={forecastData?.current} />
+          )}
+        </Grid>
+      </GridProgress>
+    </Box>
   );
 };
