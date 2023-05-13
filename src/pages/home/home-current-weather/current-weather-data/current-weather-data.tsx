@@ -12,6 +12,7 @@ import { Grid } from '@mui/material';
 import { CurrentWeatherType } from '@/types';
 
 import { ConditionItem } from './condition-item/condition-item';
+import { CurrentWeatherTemperature } from './current-weather-temperature/current-weather-temperature';
 
 interface Props {
   currentWeather: CurrentWeatherType;
@@ -38,7 +39,7 @@ export const CurrentWeatherData = ({ currentWeather }: Props) => {
     <div>
       <Grid container spacing={1}>
         <Grid item xs={12} md={6}>
-          {/* <CurrentWeatherTemperature temp={temp_c} condition={condition} /> */}
+          <CurrentWeatherTemperature tempC={tempC} condition={condition} />
         </Grid>
         <Grid item xs={12} md={6}>
           <div>
