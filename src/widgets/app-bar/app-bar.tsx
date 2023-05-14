@@ -58,7 +58,7 @@ export const PersistentDrawerLeft = ({
               }}
             >
               <Typography variant="h6" noWrap component="div">
-                MovieDB App
+                Weather App
               </Typography>
             </RouterLink>
             <Box sx={{ flexGrow: 1 }} />
