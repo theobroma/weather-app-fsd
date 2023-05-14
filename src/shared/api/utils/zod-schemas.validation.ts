@@ -1,6 +1,8 @@
 // ! for Schema debug
 import { fromZodError } from 'zod-validation-error';
 
+import { ForecastResponseSchema } from '@/types';
+
 export const ZodSchemasValidation = (url: string, res: any) => {
   const splittedUrl = url.split('?')[0];
   const asPathNestedRoutes = splittedUrl
@@ -12,12 +14,9 @@ export const ZodSchemasValidation = (url: string, res: any) => {
   // console.log('asPathNestedRoutes :>> ', asPathNestedRoutes);
 
   try {
-    if (
-      asPathNestedRoutes[0] === 'movie' &&
-      asPathNestedRoutes[2] === 'similar'
-    ) {
-      console.log('SimilarMoviesResponseSchema :>> ');
-      // SimilarMoviesResponseSchema.parse(res.data);
+    if (asPathNestedRoutes[0] === 'forecast.json') {
+      console.log('ForecastResponseSchema :>> ');
+      ForecastResponseSchema.parse(res.data);
     }
     // ============================================
     // console.log('res.data :>> ', res.data);
