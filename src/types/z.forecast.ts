@@ -9,7 +9,7 @@ export const ForecastDaySchema = z.object({
   date: z.string(), // "2023-05-14"
   dateEpoch: z.number(), // 1684022400,
   day: DaySchema,
-  hour: HourSchema,
+  hour: z.array(HourSchema),
 });
 
 // ================ Response ================
@@ -17,7 +17,7 @@ export const ForecastDaySchema = z.object({
 export const ForecastResponseSchema = z.object({
   current: CurrentWeatherSchema,
   forecast: z.object({
-    forecastDay: z.array(ForecastDaySchema),
+    forecastday: z.array(ForecastDaySchema),
   }),
 
   location: LocationSchema,
