@@ -4,7 +4,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import { Card, CardContent, Typography } from '@mui/material';
 
-import { DayType } from '@/types';
+import { ForecastDayType } from '@/types';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -26,10 +26,10 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 interface Props {
-  day: DayType;
+  forecastday: ForecastDayType;
 }
 
-export const HomeForecastDay = ({ day }: Props) => {
+export const HomeForecastDay = ({ forecastday }: Props) => {
   const { classes } = useStyles();
 
   return (
@@ -58,7 +58,7 @@ export const HomeForecastDay = ({ day }: Props) => {
             justifyContent: 'center',
           }}
         >
-          <img src={day.condition.icon} alt="icon" />
+          <img src={forecastday.day.condition.icon} alt="icon" />
         </div>
         <Typography
           className={classes.pos}

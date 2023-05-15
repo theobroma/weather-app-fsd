@@ -12,6 +12,8 @@ export const ForecastDaySchema = z.object({
   hour: z.array(HourSchema),
 });
 
+export type ForecastDayType = z.infer<typeof ForecastDaySchema>;
+
 // ================ Response ================
 
 export const ForecastResponseSchema = z.object({

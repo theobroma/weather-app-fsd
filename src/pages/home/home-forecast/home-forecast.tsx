@@ -48,7 +48,7 @@ export const HomeForecast = () => {
                   min_temp={d.day.mintemp_c}
                   max_temp={d.day.maxtemp_c}
                 /> */}
-                <HomeForecastDay day={forecastday.day} />
+                <HomeForecastDay forecastday={forecastday} />
               </Grid>
             );
           })}
