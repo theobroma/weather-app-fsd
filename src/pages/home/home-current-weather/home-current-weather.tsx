@@ -22,8 +22,6 @@ export const HomeCurrentWeather = () => {
     lon,
   });
 
-  console.log('forecastData :>> ', forecastData);
-
   return (
     <Box p={3}>
       <GridProgress container spacing={1} loading={isFetching}>

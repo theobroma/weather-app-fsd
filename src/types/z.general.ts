@@ -44,7 +44,7 @@ export const DaySchema = z.object({
   uv: z.number(),
 });
 
-// export type DayType = z.infer<typeof DaySchema>;
+export type DayType = z.infer<typeof DaySchema>;
 
 export const HourSchema = z.object({
   timeEpoch: z.number(),
