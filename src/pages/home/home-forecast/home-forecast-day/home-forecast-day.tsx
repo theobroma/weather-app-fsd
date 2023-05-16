@@ -1,29 +1,11 @@
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { makeStyles } from 'tss-react/mui';
 
 import { Card, CardContent, Typography } from '@mui/material';
 
 import { ForecastDayType } from '@/types';
 
-const useStyles = makeStyles()((theme) => ({
-  root: {
-    minWidth: 275,
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: 16,
-    },
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 6,
-  },
-  temperature: {
-    fontWeight: 300,
-    fontSize: '24px',
-  },
-}));
+import { useStyles } from './home-forecast-day.styles';
 
 const weekdayOptions = { weekday: 'long' } as const;
 const dateOptions = {
