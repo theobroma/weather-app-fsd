@@ -25,12 +25,24 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
+const weekdayOptions = { weekday: 'long' } as const;
+const dateOptions = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+} as const;
+
 interface Props {
   forecastday: ForecastDayType;
 }
 
 export const HomeForecastDay = ({ forecastday }: Props) => {
   const { classes } = useStyles();
+  const { astro, date, day } = forecastday;
+
+  const adaptedDate = new Date(date);
+  const weekDayString = adaptedDate.toLocaleString('en-US', weekdayOptions);
+  const dateString = adaptedDate.toLocaleString('en-US', dateOptions);
 
   return (
     <Card className={classes.root}>
@@ -41,14 +53,14 @@ export const HomeForecastDay = ({ forecastday }: Props) => {
           gutterBottom
           align="center"
         >
-          {/* {weekDay} */}
+          {weekDayString}
         </Typography>
         <Typography
           className={classes.pos}
           color="textSecondary"
           align="center"
         >
-          {/* {date} */}
+          {dateString}
         </Typography>
         <div
           style={{

@@ -34,13 +34,9 @@ export const HomeForecast = () => {
       </Box>
       <Box>
         <GridProgress container spacing={1} loading={isFetching}>
-          {forecastData?.forecast.forecastday.map((forecastday) => {
-            const adaptedDate = new Date(forecastday.date);
-            return (
-              <Grid item xs={12} md={4} key={nanoid(8)}>
-                {/* <ForecastDay
-                  weekDay={adaptedDate.toLocaleString('en-US', currentWeekday)}
-                  date={adaptedDate.toLocaleString('en-US', currentDate)}
+          {forecastData?.forecast.forecastday.map((forecastday) => (
+            <Grid item xs={12} md={4} key={nanoid(8)}>
+              {/* <ForecastDay
                   sunrise={d.astro.sunrise}
                   sunset={d.astro.sunset}
                   icon={d.day.condition.icon}
@@ -48,10 +44,9 @@ export const HomeForecast = () => {
                   min_temp={d.day.mintemp_c}
                   max_temp={d.day.maxtemp_c}
                 /> */}
-                <HomeForecastDay forecastday={forecastday} />
-              </Grid>
-            );
-          })}
+              <HomeForecastDay forecastday={forecastday} />
+            </Grid>
+          ))}
         </GridProgress>
       </Box>
     </Box>
