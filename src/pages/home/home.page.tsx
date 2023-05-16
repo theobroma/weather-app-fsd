@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 
 import { HomeCurrentWeather } from './home-current-weather/home-current-weather';
 import { HomeForecast } from './home-forecast/home-forecast';
@@ -6,9 +6,13 @@ import { HomeSearch } from './home-search/home-search';
 
 const HomePage = () => (
   <Container maxWidth="lg">
-    <HomeSearch />
-    <HomeCurrentWeather />
-    <HomeForecast />
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={3}>
+        <HomeSearch />
+        <HomeCurrentWeather />
+        <HomeForecast />
+      </Grid>
+    </Box>
   </Container>
 );
 

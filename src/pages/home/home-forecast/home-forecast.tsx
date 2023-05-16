@@ -1,6 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit';
 
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, Paper } from '@mui/material';
 
 import { GridProgress } from '@/shared/uikit/grid-progress/grid-progress';
 import { useDailyWeatherQuery } from '@/store/forecast/api';
@@ -24,21 +24,27 @@ export const HomeForecast = () => {
   });
 
   return (
-    <Box p={3}>
+    <Grid item xs={12}>
       <Box mb={1}>
-        <Typography variant="h6" noWrap>
-          Forecast
-        </Typography>
+        <Paper elevation={3}>
+          <Box p={3}>
+            <GridProgress container spacing={1} loading={isFetching}>
+              <Grid item xs={12}>
+                <Box mb={1}>
+                  <Typography variant="h6" noWrap>
+                    Forecast
+                  </Typography>
+                </Box>
+              </Grid>
+              {forecastData?.forecast.forecastday.map((forecastday) => (
+                <Grid item xs={12} md={4} key={nanoid(8)}>
+                  <HomeForecastDay forecastday={forecastday} />
+                </Grid>
+              ))}
+            </GridProgress>
+          </Box>
+        </Paper>
       </Box>
-      <Box>
-        <GridProgress container spacing={1} loading={isFetching}>
-          {forecastData?.forecast.forecastday.map((forecastday) => (
-            <Grid item xs={12} md={4} key={nanoid(8)}>
-              <HomeForecastDay forecastday={forecastday} />
-            </Grid>
-          ))}
-        </GridProgress>
-      </Box>
-    </Box>
+    </Grid>
   );
 };
