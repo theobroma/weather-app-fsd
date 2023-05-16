@@ -70,7 +70,7 @@ export const HomeForecastDay = ({ forecastday }: Props) => {
             justifyContent: 'center',
           }}
         >
-          <img src={forecastday.day.condition.icon} alt="icon" />
+          <img src={day.condition.icon} alt="icon" />
         </div>
         <Typography
           className={classes.pos}
@@ -80,7 +80,7 @@ export const HomeForecastDay = ({ forecastday }: Props) => {
             marginBottom: 24,
           }}
         >
-          {/* {condition_text} */}
+          {day.condition.text}
         </Typography>
         <Typography
           className={classes.temperature}
@@ -90,7 +90,7 @@ export const HomeForecastDay = ({ forecastday }: Props) => {
             marginBottom: 24,
           }}
         >
-          {/* {min_temp} - {max_temp}&#176;C */}
+          {day.mintempC} - {day.maxtempC}&#176;C
         </Typography>
         <Typography
           className={classes.pos}
@@ -98,7 +98,7 @@ export const HomeForecastDay = ({ forecastday }: Props) => {
           align="center"
         >
           <FontAwesomeIcon icon={faSun} />
-          {/* &nbsp;{sunrise} */}
+          &nbsp;{astro.sunrise}
         </Typography>
         <Typography
           className={classes.pos}
@@ -106,7 +106,7 @@ export const HomeForecastDay = ({ forecastday }: Props) => {
           align="center"
         >
           <FontAwesomeIcon icon={faMoon} />
-          {/* &nbsp;{sunset} */}
+          &nbsp;{astro.sunset}
         </Typography>
       </CardContent>
     </Card>

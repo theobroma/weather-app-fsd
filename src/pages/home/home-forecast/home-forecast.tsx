@@ -23,8 +23,6 @@ export const HomeForecast = () => {
     lon,
   });
 
-  console.log('forecastData :>> ', forecastData);
-
   return (
     <Box p={3}>
       <Box mb={1}>
@@ -36,14 +34,6 @@ export const HomeForecast = () => {
         <GridProgress container spacing={1} loading={isFetching}>
           {forecastData?.forecast.forecastday.map((forecastday) => (
             <Grid item xs={12} md={4} key={nanoid(8)}>
-              {/* <ForecastDay
-                  sunrise={d.astro.sunrise}
-                  sunset={d.astro.sunset}
-                  icon={d.day.condition.icon}
-                  condition_text={d.day.condition.text}
-                  min_temp={d.day.mintemp_c}
-                  max_temp={d.day.maxtemp_c}
-                /> */}
               <HomeForecastDay forecastday={forecastday} />
             </Grid>
           ))}
