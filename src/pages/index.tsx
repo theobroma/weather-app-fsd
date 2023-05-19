@@ -8,12 +8,15 @@ const AppLayout = lazy(() => pMinDelay(import('./app.layout'), MIN_LAZY_DELAY));
 const HomePage = lazy(() =>
   pMinDelay(import('@/pages/home/home.page'), MIN_LAZY_DELAY),
 );
+const AstronomyPage = lazy(() =>
+  pMinDelay(import('@/pages/astronomy/astronomy.page'), MIN_LAZY_DELAY),
+);
 
 export const Routing = () => (
   <Routes>
     <Route path="/" element={<AppLayout />}>
       <Route index element={<HomePage />} />
-      <Route path="/astronomy" element={<div>Astronomy</div>} />
+      <Route path="/astronomy" element={<AstronomyPage />} />
       <Route path="*" element={<div>Not Found</div>} />
     </Route>
   </Routes>
