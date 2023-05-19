@@ -12,9 +12,26 @@ import {
   OutlinedInput,
 } from '@mui/material';
 
+import { useGetPlacesQuery } from '@/store/search/api';
+
 export const HomeSearch = () => {
   const [value, setValue] = useState<string>('');
   const debouncedValue = useDebounce<string>(value, 500);
+
+  const {
+    data: placesData,
+    // error,
+    // isError,
+    // isSuccess,
+    // isFetching,
+  } = useGetPlacesQuery(
+    {
+      place: debouncedValue,
+    },
+    { skip: debouncedValue.length < 3 },
+  );
+
+  console.log('placesData :>> ', placesData);
 
   // const handleChange = () => (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setSearchVal(event.currentTarget.value.trim());
