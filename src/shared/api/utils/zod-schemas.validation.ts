@@ -1,7 +1,7 @@
 // ! for Schema debug
 import { fromZodError } from 'zod-validation-error';
 
-import { ForecastResponseSchema } from '@/types';
+import { ForecastResponseSchema, SearchPlaceResponseSchema } from '@/types';
 
 export const ZodSchemasValidation = (url: string, res: any) => {
   const splittedUrl = url.split('?')[0];
@@ -17,6 +17,10 @@ export const ZodSchemasValidation = (url: string, res: any) => {
     if (asPathNestedRoutes[0] === 'forecast.json') {
       console.log('ForecastResponseSchema :>> ');
       ForecastResponseSchema.parse(res.data);
+    }
+    if (asPathNestedRoutes[0] === 'search.json') {
+      console.log('SearchPlaceResponseSchema :>> ');
+      SearchPlaceResponseSchema.parse(res.data);
     }
     // ============================================
     // console.log('res.data :>> ', res.data);

@@ -31,8 +31,6 @@ export const HomeSearch = () => {
     { skip: debouncedValue.length < 3 },
   );
 
-  console.log('placesData :>> ', placesData);
-
   // const handleChange = () => (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setSearchVal(event.currentTarget.value.trim());
   // };
