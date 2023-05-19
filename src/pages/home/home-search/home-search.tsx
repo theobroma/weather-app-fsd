@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
 import { useDebounce } from 'usehooks-ts';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -14,7 +15,18 @@ import {
 
 import { useGetPlacesQuery } from '@/store/search/api';
 
+import { HomeSearchOutput } from './home-search-output/home-search-output';
+
+const useStyles = makeStyles()({
+  outputWrap: {
+    position: 'relative',
+    display: 'flex',
+    flexWrap: 'nowrap',
+  },
+});
+
 export const HomeSearch = () => {
+  const { classes } = useStyles();
   const [value, setValue] = useState<string>('');
   const debouncedValue = useDebounce<string>(value, 500);
 
@@ -39,6 +51,11 @@ export const HomeSearch = () => {
     setValue(event.target.value);
   };
 
+  const onPlaceClick = useCallback((lat: number, lon: number) => {
+    console.log('lat :>> ', lat);
+    console.log('lon :>> ', lon);
+  }, []);
+
   return (
     <Grid item xs={12}>
       <Box mb={1}>
@@ -60,11 +77,14 @@ export const HomeSearch = () => {
               />
             </FormControl>
 
-            {/* {searchData.length > 0 && (
+            {(placesData?.length || 0) > 0 && (
               <div className={classes.outputWrap}>
-                <SearchOutput searchData={searchData} onClick={onPlaceClick} />
+                <HomeSearchOutput
+                  searchData={placesData || []}
+                  onClick={onPlaceClick}
+                />
               </div>
-            )} */}
+            )}
           </Box>
         </Paper>
       </Box>
