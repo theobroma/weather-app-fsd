@@ -1,3 +1,11 @@
 {
-  "reject": ["@types/node","prettier"]
+  "reject": [
+    "@types/node",
+    "@reduxjs/toolkit",
+    " @types/react-redux",
+    " @types/redux-logger",
+    "prettier",
+    "react-redux",
+    "usehooks-ts"
+  ]
 }
